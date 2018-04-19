@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored ="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <title>系统信息</title>
-<link rel="stylesheet" href="css/pintuer.css">
+<link rel="stylesheet" href="admin/css/pintuer.css">
 <style type="text/css">
 *{ margin:0px; padding:0px;}
 .error-container{ background:#fff; border:1px solid #0ae;  text-align:center; width:450px; margin:100px auto; font-family:Microsoft Yahei; padding-bottom:30px; border-top-left-radius:5px; border-top-right-radius:5px;  }
@@ -36,7 +39,7 @@ a{color:#0ae;}
   
    </div>
     <h4 class="smaller">页面自动 
-	    <a id="href" href="<%=request.getAttribute("url") %>">跳转</a> 
+	    <a id="href" href="${pageContext.request.contextPath}/<%=request.getAttribute("url") %>">跳转</a>
 	  	 等待时间：
 	    <b id="wait">3</b>
     </h4> 

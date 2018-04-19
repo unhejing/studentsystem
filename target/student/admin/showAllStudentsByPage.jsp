@@ -50,14 +50,14 @@
                         </td>
                         <td>${student.avgscore}</td>
                         <td>${student.description}</td>
-                        <td><div class="button-group"> <a class="button border-main" href="/editStudent?id=${student.id}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del('${student.id}')"><span class="icon-trash-o"></span> 删除</a> </div></td>
+                        <td><div class="button-group"> <a class="button border-main" href="${pageContext.request.contextPath}/editStudent?id=${student.id}"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="javascript:void(0)" onclick="return del('${student.id}')"><span class="icon-trash-o"></span> 删除</a> </div></td>
                     </tr>
                 </c:forEach>
 
 
                     <%
                         long num = (long) request.getAttribute("num");
-                        num = (long) Math.ceil(num/10);
+                        num = (long) Math.floor(num/10)+1;
                         int current = (Integer) request.getAttribute("pageNum");
                         int last = (int)num;
                      %>
@@ -65,23 +65,23 @@
                         <td colspan="8">
                             <div class="pagelist">
                                 <%if(current-1!=0){ %>
-                                <a href="/studentlist?showPage=<%=current-1 %>">上一页</a>
+                                <a href="${pageContext.request.contextPath}/studentlist?showPage=<%=current-1 %>">上一页</a>
                                 <%} %>
                                 <%for(int i=current-2; i <= current+2; i++){ %>
                                 <%if(i>0 && i<=last){ %>
                                 <%if(current==i){ %>
                                 <span class="current"><%=i %></span>
                                 <%}else{ %>
-                                <a href="/studentlist?showPage=<%=i %>"><%=i %></a></li>
+                                <a href="${pageContext.request.contextPath}/studentlist?showPage=<%=i %>"><%=i %></a></li>
                                 <%} %>
                                 <%} %>
                                 <%} %>
 
                                 <%if(current+1 <= last){ %>
-                                <a href="/studentlist?showPage=<%=current+1 %>">下一页</a>
+                                <a href="${pageContext.request.contextPath}/studentlist?showPage=<%=current+1 %>">下一页</a>
                                 <%} %>
                                 <%if(last>1){ %>
-                                <a href="/studentlist?showPage=<%=last %>">尾页</a>
+                                <a href="${pageContext.request.contextPath}/studentlist?showPage=<%=last %>">尾页</a>
                                 <%} %>
                             </div>
                         </td>
@@ -99,7 +99,7 @@
     //单个删除
     function del(id){
         if(confirm("您确定要删除吗?")){
-            window.location.href = "/deleteStudent?id="+id;
+            window.location.href = "${pageContext.request.contextPath}/deleteStudent?id="+id;
         }
     }
 

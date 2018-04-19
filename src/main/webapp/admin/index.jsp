@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored ="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -29,7 +32,7 @@
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
     <h2><span class="icon-user"></span>学生信息管理</h2>
     <ul style="display:block">
-        <li><a href="/studentlist?showPage=1" target="right"><span class="icon-caret-right"></span>学生列表</a></li>
+        <li><a href="${pageContext.request.contextPath}/studentlist?showPage=1" target="right"><span class="icon-caret-right"></span>学生列表</a></li>
     </ul>
 </div>
 <script type="text/javascript">
@@ -52,7 +55,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>
 </ul>
 <div class="admin">
-    <iframe scrolling="auto" rameborder="0" src="/studentlist?showPage=1" name="right" width="100%" height="100%"></iframe>
+    <iframe scrolling="auto" rameborder="0" src="${pageContext.request.contextPath}/studentlist?showPage=1" name="right" width="100%" height="100%"></iframe>
 </div>
 <div style="text-align:center;">
     <p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>

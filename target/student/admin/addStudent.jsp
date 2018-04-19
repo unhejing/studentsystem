@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored ="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -23,7 +26,7 @@
 <div class="panel admin-panel">
     <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 网站信息</strong></div>
     <div class="body-content">
-        <form method="post" class="form-x" action="/addStudent">
+        <form method="post" class="form-x" action="${pageContext.request.contextPath}/addStudent">
             <div class="form-group">
                 <div class="label">
                     <label>学生姓名：</label>
@@ -39,7 +42,7 @@
                     <label>出生日期：</label>
                 </div>
                 <div class="field">
-                    <input type="text" class="input" name="birthday" value="" />
+                    <input type="date" class="input" name="birthday" value="" />
                 </div>
             </div>
             <div class="form-group">
